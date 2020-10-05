@@ -74,7 +74,7 @@ public class App
     	
     	//kafka related configuration
     	Map<String, Object> kafkaParams = new HashMap<>();
-    	kafkaParams.put("bootstrap.servers", "localhost:9092");
+    	kafkaParams.put("bootstrap.servers", "localhost:9090");
     	kafkaParams.put("key.deserializer", StringDeserializer.class);
     	kafkaParams.put("value.deserializer", StringDeserializer.class);
     	kafkaParams.put("group.id", "use_a_separate_group_id_for_each_stream");
@@ -87,7 +87,6 @@ public class App
     	SparkConf sparkConf = new SparkConf();
     	sparkConf.setAppName("KafkaStreaming");
     	sparkConf.setMaster("local[*]");
-    	//sparkConf.set("spark.cassandra.connection.host", "127.0.0.1");
     	 
     	JavaStreamingContext streamingContext = new JavaStreamingContext(sparkConf, Durations.seconds(3));
     	//sparkContext = streamingContext.sparkContext();
